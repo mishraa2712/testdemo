@@ -6,9 +6,9 @@ pipeline {
                 bat 'mvn clean compile'
             }
         }
-        stage('Manual Input') {
+        stage('Install Artifact locally') {
             steps {
-                input "Does the staging environment look ok?"
+                bat 'mvn install'
             }
         }
         stage('Test Result') {
