@@ -15,7 +15,14 @@ pipeline {
         }
         stage('Build Step') {
             steps {
-                bat 'mvn clean compile'
+                parallel(
+                    single: {
+                        bat 'mvn compile -f single-module/pom.xml'
+                    },
+                    Multi: {
+                        bat 'mvn compile -f multi-module/pom.xml'
+                    }
+                )
             }
         }
         stage('Install Artifact locally') {
