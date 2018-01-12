@@ -1,6 +1,6 @@
 { ->
   node() {
-    hello 'world'
+    hello 'world...'
   }
 }
 def hello(whom) {
